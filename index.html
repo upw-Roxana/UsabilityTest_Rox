@@ -134,14 +134,16 @@
     <div class="mt-3">
         <hr />
         <div class="d-flex gap-2 justify-content-start">
-            <button type="button" class="btn btn-primary">Generate Code</button>
+            <button type="button" class="btn btn-primary" onclick="codeMagic()">Generate Code</button>
         </div>
     </div>
 
     <div class="mt-1">
         <!-- <label for="generatedCode" class="form-label">Generated Code</label> -->
 
-        <textarea placeholder="Presto query string will be generated here." name="message" rows="5" class="col-12 form-control"></textarea>
+        <code class="form-control mt-2 overflow-auto" style="max-height: 40vh; min-height: 20vh;">
+            <p id="removeMe">Presto Code will be generated here</p>
+        </code>
     </div>
     </div>
     </div>
