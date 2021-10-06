@@ -30,16 +30,28 @@
     width: 100%;
 }
 
-#exL p {
+#exL .dragMe p {
     padding: 0;
     margin-bottom: 0;
-    margin-top: 5px;
+    line-height: normal;
     color: lightslategray;
     font-size: smaller;
 }
 
-#exL .dragMe p:before {
+#exL .dragMe p:first-of-type {
+    margin-top: 5px;
+}
+
+#exL .dragMe p:first-of-type:before {
     content: "Format: ";
+}
+
+#exL .dragMe p:nth-of-type(2n) {
+    color: lightseagreen;
+}
+
+#exL .dragMe p:nth-of-type(2n):before {
+    content: "From: ";
 }
 
 #bigHelpText {
@@ -47,7 +59,6 @@
     top: 50%;
     width: 100%;
     text-align: center;
-    font-size: large;
 }
 
 #exL input:not(input[type=checkbox]) {
