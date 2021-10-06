@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="./fa-css/all.css" rel="stylesheet" />
+    <link href="styles.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" defer></script>
 
     <!-- Sortable.js -->
@@ -73,7 +75,7 @@
 
     <div class="row">
         <div class="col">
-            <p>Drag nodes here to build the audience</p>
+            <!--Original Label was here-->
         </div>
         <div class="col col-lg-5">
             <ul class="nav nav-tabs nav-fill">
@@ -93,7 +95,8 @@
 
             <!--Put Query Here-->
             <div id="exL" class="list-group border" style="min-height: 30vh; background-color: aliceblue;">
-
+                <img src="./object-group.svg" style="height:150px; opacity: 5%; margin:auto;" />
+                <p style="color: cornflowerblue;">Drag nodes here to build the audience</p>
             </div>
 
         </div>
@@ -103,24 +106,24 @@
 
             <ul id="exR" class="list-group ">
                 <li class="list-group-item  text-white bg-secondary filtered">DailyActiveJobseeker</li>
-                <li class="list-group-item">active at least <input style="width: 30px;"> times in the time range</li>
-                <li class="list-group-item">located in a country <input style="width: 80px;"></li>
-                <li class="list-group-item">located in a country <input style="width: 80px;"> in the state of <input style="width: 80px;"></li>
-                <li class="list-group-item">located in a country <input style="width: 80px;"> in zipcode(s) <input style="width: 80px;"></li>
+                <li class="list-group-item dragMe">active at least <input style="width: 30px;"> times in the time range</li>
+                <li class="list-group-item dragMe">located in a country <input style="width: 80px;"></li>
+                <li class="list-group-item dragMe">located in a country <input style="width: 80px;"> in the state of <input style="width: 80px;"></li>
+                <li class="list-group-item dragMe">located in a country <input style="width: 80px;"> in zipcode(s) <input style="width: 80px;"></li>
                 <li class="list-group-item  text-white bg-secondary filtered">ResumeData</li>
-                <li class="list-group-item">Has a resume <span class="form-check form-switch"><input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault"></span></li>
-                <li class="list-group-item">Updated Resume within the timeframe <span class="form-check form-switch"><input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault"></span></li>
-                <li class="list-group-item">Indicated they are graduating this year</li>
-                <li class="list-group-item">Specific title of <input style="width: 80px;"> on Resume</li>
+                <li class="list-group-item dragMe">Has a resume <span class="form-check form-switch"><input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault"></span></li>
+                <li class="list-group-item dragMe">Updated Resume within the timeframe <span class="form-check form-switch"><input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault"></span></li>
+                <li class="list-group-item dragMe">Indicated they are graduating this year</li>
+                <li class="list-group-item dragMe">Specific title of <input style="width: 80px;"> on Resume</li>
                 <li class="list-group-item  text-white bg-secondary filtered">Jobsearch/Mobsearch</li>
-                <li class="list-group-item">Searched for a job title <input style="width: 80px;"></li>
-                <li class="list-group-item">Exclude search terms for a job title <input style="width: 80px;"></li>
-                <li class="list-group-item">Searched in the "what" field for <input style="width: 80px;"></li>
-                <li class="list-group-item">Exclude phrases in the "what" field <input style="width: 80px;"></li>
-                <li class="list-group-item">Searched for locations in the "where" field <input style="width: 80px;"></li>
+                <li class="list-group-item dragMe">Searched for a job title <input style="width: 80px;"></li>
+                <li class="list-group-item dragMe">Exclude search terms for a job title <input style="width: 80px;"></li>
+                <li class="list-group-item dragMe">Searched in the "what" field for <input style="width: 80px;"></li>
+                <li class="list-group-item dragMe">Exclude phrases in the "what" field <input style="width: 80px;"></li>
+                <li class="list-group-item dragMe">Searched for locations in the "where" field <input style="width: 80px;"></li>
                 <li class="list-group-item  text-white bg-secondary filtered">ApplicationFunnel</li>
-                <li class="list-group-item">applied at least <input style="width: 30px;"> times in the time range</li>
-                <li class="list-group-item">but with no positive outcomes</li>
+                <li class="list-group-item dragMe">applied at least <input style="width: 30px;"> times in the time range</li>
+                <li class="list-group-item dragMe">but with no positive outcomes</li>
             </ul>
 
 

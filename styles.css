@@ -1,0 +1,36 @@
+.dragMe {
+    z-index: 1;
+}
+
+.dragMe:before {
+    background-image: url('./grip-vertical.svg');
+    background-size: 12px 12px;
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-right: 10px;
+    content: "  ";
+}
+
+#exR input {
+    display: none;
+}
+
+#exL {
+    position: relative;
+}
+
+#exL>img {
+    height: 150px;
+    opacity: 5%;
+    position: absolute;
+    top: 25px;
+    width: 100%;
+}
+
+#exL p {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+}
