@@ -65,3 +65,13 @@
     width: 120px;
     margin-top: 5px;
 }
+
+.tempHide {
+    display: none;
+}
+
+#exL .allDrag:after {
+    font-size: smaller;
+    color: lightseagreen;
+    content: "From: DailyActiveJobseeker";
+}

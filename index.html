@@ -32,7 +32,7 @@
     <div class="container-lg mt-3">
         <div class="bg-white p-3 col-lg-9 mx-auto">
             <h1>Audience Builder</h1>
-            <p class="mb-0">Use this No-code UI to build an audience to be used in Indeed’s database.</p>
+            <p class="mb-0">Use this No-code UI to build an audience with the Indeed's <b>Presto K8s prod</b> Database.</p>
         </div>
 
     </div>
@@ -80,10 +80,10 @@
         <div class="col col-lg-5">
             <ul class="nav nav-tabs nav-fill">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Shortcuts</a>
+                    <a id="shortCutsTab" class="nav-link active" aria-current="page" onclick="shortCutsSelected();">Shortcuts</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">All Available</a>
+                    <a id="allTab" class="nav-link" onclick="allSelected();">All Available</a>
                 </li>
 
             </ul>
@@ -103,82 +103,169 @@
 
         <div class="col col-lg-5 overflow-auto" style="height: 55vh;">
             <!--Side Bar-->
+            <div id="exR">
+                <ul id="shortCuts" class="list-group">
+                    <li class="list-group-item  text-white bg-secondary filtered">DailyActiveJobseeker</li>
+                    <li class="list-group-item dragMe">active at least <input type="number" min="0" step="1" style="width: 50px;"> times in the time range
+                        <p>Enter a whole number.</p>
+                        <p>DailyActiveJobseeker</p>
+                    </li>
+                    <li class="list-group-item dragMe">located in a country <input class="countryInput">
+                        <p>Only 2 Digit Country Codes.</p>
+                        <p>DailyActiveJobseeker</p>
+                    </li>
+                    <li class="list-group-item dragMe">located in a country <input class="countryInput"> in the state of <input>
+                        <p>Only 2 Digit Country Codes. Enter multiple values by seperating them with a comma.</p>
+                        <p>DailyActiveJobseeker</p>
+                    </li>
+                    <li class="list-group-item dragMe">located in a country <input class="countryInput"> in zipcode(s) <input>
+                        <p>Only 2 Digit Country Codes. Enter multiple values by seperating them with a comma.</p>
+                        <p>DailyActiveJobseeker</p>
+                    </li>
+                    <li class="list-group-item  text-white bg-secondary filtered">ResumeData</li>
+                    <li class="list-group-item dragMe">Has a resume <span class="form-check form-switch"><input class="form-check-input" type="checkbox"></span>
+                        <p>If the switch is on, that means the value is true.</p>
+                        <p>ResumeData</p>
+                    </li>
+                    <li class="list-group-item dragMe">Updated Resume within the timeframe <span class="form-check form-switch"><input class="form-check-input" type="checkbox"></span>
+                        <p>If the switch is on, that means the value is true.</p>
+                        <p>ResumeData</p>
+                    </li>
+                    <li class="list-group-item dragMe">Indicated they are graduating this year
+                        <p>If included, this value is true.</p>
+                        <p>ResumeData</p>
+                    </li>
+                    <li class="list-group-item dragMe">Specific job title(s) of <input> on Resume
+                        <p>Enter multiple values seperated by a comma.</p>
+                        <p>ResumeData</p>
+                    </li>
+                    <li class="list-group-item dragMe">Exclude job title(s) of <input> on Resume
+                        <p>Enter multiple values seperated by a comma.</p>
+                        <p>ResumeData</p>
+                    </li>
+                    <li class="list-group-item dragMe">Willing to Relocate<span class="form-check form-switch"><input class="form-check-input" type="checkbox"></span>
+                        <p>If the switch is on, that means the value is true.</p>
+                        <p>ResumeData</p>
+                    </li>
+                    <li class="list-group-item  text-white bg-secondary filtered">Jobsearch, Mobsearch</li>
+                    <li class="list-group-item dragMe">Searched for a job title <input>
+                        <p>Enter multiple values seperated by a comma.</p>
+                        <p>Jobsearch, Mobsearch</p>
+                    </li>
+                    <li class="list-group-item dragMe">Exclude search terms for a job title <input>
+                        <p>Enter multiple values seperated by a comma.</p>
+                        <p>Jobsearch, Mobsearch</p>
+                    </li>
+                    <li class="list-group-item dragMe">Searched in the "what" field for <input>
+                        <p>Enter multiple values seperated by a comma.</p>
+                        <p>Jobsearch, Mobsearch</p>
+                    </li>
+                    <li class="list-group-item dragMe">Exclude phrases in the "what" field <input>
+                        <p>Enter multiple values seperated by a comma.</p>
+                        <p>Jobsearch, Mobsearch</p>
+                    </li>
+                    <li class="list-group-item dragMe">Searched for locations in the "where" field <input>
+                        <p>Enter multiple values seperated by a comma.</p>
+                        <p>Jobsearch, Mobsearch</p>
+                    </li>
+                    <li class="list-group-item  text-white bg-secondary filtered">ApplicationFunnel</li>
+                    <li class="list-group-item dragMe">applied at least <input type="number" min="0" step="1" style="width: 50px;"> times in the time range
+                        <p>Enter a whole number.</p>
+                        <p>ApplicationFunnel</p>
+                    </li>
+                    <li class="list-group-item dragMe">but with no positive outcomes
+                        <p>If included, this value is true.</p>
+                        <p>ApplicationFunnel</p>
+                    </li>
+                </ul>
 
-            <ul id="exR" class="list-group ">
-                <li class="list-group-item  text-white bg-secondary filtered">DailyActiveJobseeker</li>
-                <li class="list-group-item dragMe">active at least <input type="number" min="0" step="1" style="width: 50px;"> times in the time range
-                    <p>Enter a whole number.</p>
-                    <p>DailyActiveJobseeker</p>
-                </li>
-                <li class="list-group-item dragMe">located in a country <input class="countryInput">
-                    <p>Only 2 Digit Country Codes.</p>
-                    <p>DailyActiveJobseeker</p>
-                </li>
-                <li class="list-group-item dragMe">located in a country <input class="countryInput"> in the state of <input>
-                    <p>Only 2 Digit Country Codes. Enter multiple values by seperating them with a comma.</p>
-                    <p>DailyActiveJobseeker</p>
-                </li>
-                <li class="list-group-item dragMe">located in a country <input class="countryInput"> in zipcode(s) <input>
-                    <p>Only 2 Digit Country Codes. Enter multiple values by seperating them with a comma.</p>
-                    <p>DailyActiveJobseeker</p>
-                </li>
-                <li class="list-group-item  text-white bg-secondary filtered">ResumeData</li>
-                <li class="list-group-item dragMe">Has a resume <span class="form-check form-switch"><input class="form-check-input" type="checkbox"></span>
-                    <p>If the switch is on, that means the value is true.</p>
-                    <p>ResumeData</p>
-                </li>
-                <li class="list-group-item dragMe">Updated Resume within the timeframe <span class="form-check form-switch"><input class="form-check-input" type="checkbox"></span>
-                    <p>If the switch is on, that means the value is true.</p>
-                    <p>ResumeData</p>
-                </li>
-                <li class="list-group-item dragMe">Indicated they are graduating this year
-                    <p>If included, this value is true.</p>
-                    <p>ResumeData</p>
-                </li>
-                <li class="list-group-item dragMe">Specific job title(s) of <input> on Resume
-                    <p>Enter multiple values seperated by a comma.</p>
-                    <p>ResumeData</p>
-                </li>
-                <li class="list-group-item dragMe">Exclude job title(s) of <input> on Resume
-                    <p>Enter multiple values seperated by a comma.</p>
-                    <p>ResumeData</p>
-                </li>
-                <li class="list-group-item dragMe">Willing to Relocate<span class="form-check form-switch"><input class="form-check-input" type="checkbox"></span>
-                    <p>If the switch is on, that means the value is true.</p>
-                    <p>ResumeData</p>
-                </li>
-                <li class="list-group-item  text-white bg-secondary filtered">Jobsearch, Mobsearch</li>
-                <li class="list-group-item dragMe">Searched for a job title <input>
-                    <p>Enter multiple values seperated by a comma.</p>
-                    <p>Jobsearch, Mobsearch</p>
-                </li>
-                <li class="list-group-item dragMe">Exclude search terms for a job title <input>
-                    <p>Enter multiple values seperated by a comma.</p>
-                    <p>Jobsearch, Mobsearch</p>
-                </li>
-                <li class="list-group-item dragMe">Searched in the "what" field for <input>
-                    <p>Enter multiple values seperated by a comma.</p>
-                    <p>Jobsearch, Mobsearch</p>
-                </li>
-                <li class="list-group-item dragMe">Exclude phrases in the "what" field <input>
-                    <p>Enter multiple values seperated by a comma.</p>
-                    <p>Jobsearch, Mobsearch</p>
-                </li>
-                <li class="list-group-item dragMe">Searched for locations in the "where" field <input>
-                    <p>Enter multiple values seperated by a comma.</p>
-                    <p>Jobsearch, Mobsearch</p>
-                </li>
-                <li class="list-group-item  text-white bg-secondary filtered">ApplicationFunnel</li>
-                <li class="list-group-item dragMe">applied at least <input type="number" min="0" step="1" style="width: 50px;"> times in the time range
-                    <p>Enter a whole number.</p>
-                    <p>ApplicationFunnel</p>
-                </li>
-                <li class="list-group-item dragMe">but with no positive outcomes
-                    <p>If included, this value is true.</p>
-                    <p>ApplicationFunnel</p>
-                </li>
-            </ul>
 
+
+                <!-- Start the All Available List Here-->
+                <ul id="allAvailable" class="list-group tempHide">
+                    <li class="list-group-item text-white bg-white filtered"> <input placeholder="search" style="display: inline-flex;"></li>
+                    <li class="list-group-item  text-white bg-secondary filtered d-flex align-items-baseline">DailyActiveJobseeker<button class="btn btn-light btn-sm ms-auto">Change</button></li>
+                    <li class="list-group-item dragMe allDrag">applystart <input>
+                        <p>???</p>
+                    </li>
+                    <li class="list-group-item dragMe allDrag">country <input>
+                        <p>???</p>
+                    </li>
+                    <li class="list-group-item dragMe allDrag">ctk <input>
+                        <p>???</p>
+                    </li>
+                    <li class="list-group-item dragMe allDrag">ctkdate <input>
+                        <p>???</p>
+                    </li>
+                    <li class="list-group-item dragMe allDrag">device <input>
+                        <p>???</p>
+                    </li>
+                    <li class="list-group-item dragMe allDrag">flamdex_doc_id <input>
+                        <p>???</p>
+                    </li>
+                    <li class="list-group-item dragMe allDrag">flamdex_shard_id <input>
+                        <p>???</p>
+                    </li>
+                    <li class="list-group-item dragMe allDrag">grp <input>
+                        <p>???</p>
+                    </li>
+                    <li class="list-group-item dragMe allDrag">ipregion <input>
+                        <p>???</p>
+                    </li>
+                    <li class="list-group-item dragMe allDrag">lang <input>
+                        <p>???</p>
+                    </li>
+                    <li class="list-group-item dragMe allDrag">lang_grp <input>
+                        <p>???</p>
+                    </li>
+                    <li class="list-group-item dragMe allDrag">lowercase_global_email_hash <input>
+                        <p>???</p>
+                    </li>
+                    <li class="list-group-item dragMe allDrag">resume_creations <input>
+                        <p>???</p>
+                    </li>
+                    <li class="list-group-item dragMe allDrag">resume_updates <input>
+                        <p>???</p>
+                    </li>
+                    <li class="list-group-item dragMe allDrag">slregion <input>
+                        <p>???</p>
+                    </li>
+                    <li class="list-group-item dragMe allDrag">uab <input>
+                        <p>???</p>
+                    </li>
+                    <li class="list-group-item dragMe allDrag">uabf <input>
+                        <p>???</p>
+                    </li>
+                    <li class="list-group-item dragMe allDrag">uabvmaj <input>
+                        <p>???</p>
+                    </li>
+                    <li class="list-group-item dragMe allDrag">uabvmin <input>
+                        <p>???</p>
+                    </li>
+                    <li class="list-group-item dragMe allDrag">uahas <input>
+                        <p>???</p>
+                    </li>
+                    <li class="list-group-item dragMe allDrag">uais <input>
+                        <p>???</p>
+                    </li>
+                    <li class="list-group-item dragMe allDrag">uaos <input>
+                        <p>???</p>
+                    </li>
+                    <li class="list-group-item dragMe allDrag">uaosvmaj <input>
+                        <p>???</p>
+                    </li>
+                    <li class="list-group-item dragMe allDrag">uaosvmin <input>
+                        <p>???</p>
+                    </li>
+                    <li class="list-group-item dragMe allDrag">useragent <input>
+                        <p>???</p>
+                    </li>
+                </ul>
+
+
+
+
+            </div>
 
         </div>
 

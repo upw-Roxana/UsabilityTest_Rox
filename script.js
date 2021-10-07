@@ -1,16 +1,71 @@
 Sortable.create(exL, {
-    group: 'shared',
+    group: "shared",
     animation: 100
 });
 
-Sortable.create(exR, {
-    group: 'shared',
+Sortable.create(shortCuts, {
+    group: "shared",
+    animation: 100,
+    filter: '.filtered', // 'filtered' class is not draggable
+    sort: false
+});
+
+Sortable.create(allAvailable, {
+    group: "shared",
     animation: 100,
     filter: '.filtered', // 'filtered' class is not draggable
     sort: false
 });
 
 
+
+function shortCutsSelected() {
+    let boop = document.getElementById("shortCutsTab");
+    let boop2 = document.getElementById("allTab");
+    let shortcuts = document.getElementById("shortCuts");
+    let allAvailable = document.getElementById("allAvailable");
+
+    if (!boop.classList.contains("active")) {
+        boop.classList.add("active");
+    }
+
+    if (boop2.classList.contains("active")) {
+        boop2.classList.remove("active");
+    }
+
+    if (shortcuts.classList.contains("tempHide")) {
+        shortcuts.classList.remove("tempHide");
+    }
+
+    if (!allAvailable.classList.contains("tempHide")) {
+        allAvailable.classList.add("tempHide");
+    }
+
+}
+
+function allSelected() {
+    let boop = document.getElementById("shortCutsTab");
+    let boop2 = document.getElementById("allTab");
+    let shortcuts = document.getElementById("shortCuts");
+    let allAvailable = document.getElementById("allAvailable");
+
+    if (!boop2.classList.contains("active")) {
+        boop2.classList.add("active");
+    }
+
+    if (boop.classList.contains("active")) {
+        boop.classList.remove("active");
+    }
+
+    if (!shortcuts.classList.contains("tempHide")) {
+        shortcuts.classList.add("tempHide");
+    }
+
+    if (allAvailable.classList.contains("tempHide")) {
+        allAvailable.classList.remove("tempHide");
+    }
+
+}
 
 function codeMagic() {
     let boop = document.querySelector("code");
