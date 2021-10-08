@@ -64,6 +64,7 @@
 #exL input:not(input[type=checkbox]) {
     width: 120px;
     margin-top: 5px;
+    padding-top: 5px;
 }
 
 .tempHide {
@@ -74,4 +75,10 @@
     font-size: smaller;
     color: lightseagreen;
     content: "From: DailyActiveJobseeker";
+}
+
+#exL .allDrag input:after {
+    content: "HeyHeyHey";
+    background-color: cornflowerblue;
+    background-size: 12px 12px;
 }

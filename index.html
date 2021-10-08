@@ -22,7 +22,7 @@
 </head>
 
 
-<body class="bg-light">
+<body class="bg-light" onload="updateUI()">
     <nav class="navbar navbar-light bg-dark">
         <div class="container-fluid">
             <span class="navbar-brand mb-0 h1 text-white">Indubitably</span>
@@ -32,9 +32,8 @@
     <div class="container-lg mt-3">
         <div class="bg-white p-3 col-lg-9 mx-auto">
             <h1>Audience Builder</h1>
-            <p class="mb-0">Use this No-code UI to build an audience with the Indeed's <b>Presto K8s prod</b> Database.</p>
+            <p class="mb-0">Use this No-code UI to build an audience with the Indeed's <b>Presto prod</b> database environment.</p>
         </div>
-
     </div>
 
     <div class="container-lg mt-3">
@@ -42,13 +41,25 @@
 
         <main class="bg-white p-3 col-lg-9 mx-auto">
 
-            <div class="row d-flex align-items-baseline">
-                <label class="col col-auto">Audience Preset Name: 
-                <input class="form-control" style="width: 50vw;"></label>
+            <div class="row">
+                <div class="col">
+                    <label class="col col-auto">Audience Preset Name: 
+                    <input class="form-control col mt-1" style="width: 400px;"></label>
+                </div>
+
             </div>
+
+
+            <div>
+                <label class="col col-auto mt-3">Status: <span class="text-info">Just Created</span>
+                    <p class="mb-1 text-secondary" style="font-size: smaller;">If this is live, you will not be able to edit.</p>
+                    </label>
+            </div>
+
             <!--Top Level Controls-->
-            <div class="row align-items-baseline mt-2">
+            <div class="row align-items-baseline mt-3">
                 <label class="col col-auto ">Choose
+                    <p class="mb-1 text-secondary" style="font-size: smaller;">Selecting Accounts will automatically exclude Advertisers</p>
                 <div>
                     <div class="btn-group " role="group" aria-label="Basic radio toggle button group">
                         <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
@@ -76,6 +87,7 @@
     <div class="row">
         <div class="col">
             <!--Original Label was here-->
+            <p style="font-size: smaller;">You can enter multiple values into most fields and seperate them by a comma. This acts as an OR statement.</p>
         </div>
         <div class="col col-lg-5">
             <ul class="nav nav-tabs nav-fill">
@@ -114,7 +126,7 @@
                         <p>Only 2 Digit Country Codes.</p>
                         <p>DailyActiveJobseeker</p>
                     </li>
-                    <li class="list-group-item dragMe">located in a country <input class="countryInput"> in the state of <input>
+                    <li class="list-group-item dragMe">located in a country <input class="countryInput"> in the state of <input class="form-control">
                         <p>Only 2 Digit Country Codes. Enter multiple values by seperating them with a comma.</p>
                         <p>DailyActiveJobseeker</p>
                     </li>
@@ -185,80 +197,156 @@
                 <ul id="allAvailable" class="list-group tempHide">
                     <li class="list-group-item text-white bg-white filtered"> <input placeholder="search" style="display: inline-flex;"></li>
                     <li class="list-group-item  text-white bg-secondary filtered d-flex align-items-baseline">DailyActiveJobseeker<button class="btn btn-light btn-sm ms-auto">Change</button></li>
-                    <li class="list-group-item dragMe allDrag">applystart <input>
+                    <li class="list-group-item dragMe allDrag">applystart
+                        <span class="boolSelect"></span>
+                        <input>
+                        <span class="addMe"></span>
+                        <p>The clicks on Indeed Apply button ("Apply Now") or clicks on "Apply on Company Site" button (which goes to a 3rd party site), </p>
+
+                    </li>
+                    <li class="list-group-item dragMe allDrag">country
+                        <span class="boolSelect"></span>
+                        <input>
+                        <span class="addMe"></span>
+                        <p>The 2-letter country code of the job seeker's location based on site used</p>
+                    </li>
+                    <li class="list-group-item dragMe allDrag">ctk
+                        <span class="boolSelect"></span>
+                        <input>
+                        <span class="addMe"></span>
+                        <p>cookie tracking key</p>
+                    </li>
+                    <li class="list-group-item dragMe allDrag">ctkdate
+                        <span class="boolSelect"></span>
+                        <input>
+                        <span class="addMe"></span>
+                        <p>The date that a Cookie Tracking Key was recieved. </p>
+                    </li>
+                    <li class="list-group-item dragMe allDrag">device
+                        <span class="boolSelect"></span>
+                        <input>
+                        <span class="addMe"></span>
+                        <p>Type of browser which the ctk is associated with; includes ‘desktop’, ‘mobile’, ‘mobileapp’, and ‘INVALID’</p>
+                    </li>
+                    <li class="list-group-item dragMe allDrag">flamdex_doc_id
+                        <span class="boolSelect"></span>
+                        <input>
+                        <span class="addMe"></span>
                         <p>???</p>
                     </li>
-                    <li class="list-group-item dragMe allDrag">country <input>
+                    <li class="list-group-item dragMe allDrag">flamdex_shard_id
+                        <span class="boolSelect"></span>
+                        <input>
+                        <span class="addMe"></span>
                         <p>???</p>
                     </li>
-                    <li class="list-group-item dragMe allDrag">ctk <input>
+                    <li class="list-group-item dragMe allDrag">grp
+                        <span class="boolSelect"></span>
+                        <input>
+                        <span class="addMe"></span>
+                        <p>Group designations for Optimizely, Proctor (A/B) Tests, and/or IP information such as 'privileged' for indeed employees, or 'spider' for bot activity.</p>
+                    </li>
+                    <li class="list-group-item dragMe allDrag">ipregion
+                        <span class="boolSelect"></span>
+                        <input>
+                        <span class="addMe"></span>
+                        <p>Location detected from IP address.</p>
+                    </li>
+                    <li class="list-group-item dragMe allDrag">lang
+                        <span class="boolSelect"></span>
+                        <input>
+                        <span class="addMe"></span>
+                        <p>Most frequently used language across all sessions during the day</p>
+                    </li>
+                    <li class="list-group-item dragMe allDrag">lang_grp
+                        <span class="boolSelect"></span>
+                        <input>
+                        <span class="addMe"></span>
+                        <p>set of languages which a user used during his session</p>
+                    </li>
+                    <li class="list-group-item dragMe allDrag">lowercase_global_email_hash
+                        <span class="boolSelect"></span>
+                        <input>
+                        <span class="addMe"></span>
                         <p>???</p>
                     </li>
-                    <li class="list-group-item dragMe allDrag">ctkdate <input>
-                        <p>???</p>
+                    <li class="list-group-item dragMe allDrag">resume_creations
+                        <span class="boolSelect"></span>
+                        <input>
+                        <span class="addMe"></span>
+                        <p>Total number of resumes created</p>
                     </li>
-                    <li class="list-group-item dragMe allDrag">device <input>
-                        <p>???</p>
+                    <li class="list-group-item dragMe allDrag">resume_updates
+                        <span class="boolSelect"></span>
+                        <input>
+                        <span class="addMe"></span>
+                        <p>The total number of resume updates, i.e. if a user updated their single resume 10 times this number is going to be 10, not 1.</p>
                     </li>
-                    <li class="list-group-item dragMe allDrag">flamdex_doc_id <input>
-                        <p>???</p>
+                    <li class="list-group-item dragMe allDrag">slregion
+                        <span class="boolSelect"></span>
+                        <input>
+                        <span class="addMe"></span>
+                        <p>matched search location region</p>
                     </li>
-                    <li class="list-group-item dragMe allDrag">flamdex_shard_id <input>
-                        <p>???</p>
+                    <li class="list-group-item dragMe allDrag">uab
+                        <span class="boolSelect"></span>
+                        <input>
+                        <span class="addMe"></span>
+                        <p>user agent browser</p>
                     </li>
-                    <li class="list-group-item dragMe allDrag">grp <input>
-                        <p>???</p>
+                    <li class="list-group-item dragMe allDrag">uabf
+                        <span class="boolSelect"></span>
+                        <input>
+                        <span class="addMe"></span>
+                        <p>user agent browser family</p>
                     </li>
-                    <li class="list-group-item dragMe allDrag">ipregion <input>
-                        <p>???</p>
+                    <li class="list-group-item dragMe allDrag">uabvmaj
+                        <span class="boolSelect"></span>
+                        <input>
+                        <span class="addMe"></span>
+                        <p>user agent browser version (major)</p>
                     </li>
-                    <li class="list-group-item dragMe allDrag">lang <input>
-                        <p>???</p>
+                    <li class="list-group-item dragMe allDrag">uabvmin
+                        <span class="boolSelect"></span>
+                        <input>
+                        <span class="addMe"></span>
+                        <p>user agent browser version (minor)</p>
                     </li>
-                    <li class="list-group-item dragMe allDrag">lang_grp <input>
-                        <p>???</p>
+                    <li class="list-group-item dragMe allDrag">uahas
+                        <span class="boolSelect"></span>
+                        <input>
+                        <span class="addMe"></span>
+                        <p>multi-valued field identifying if the agent is capable for geo-location (geoloc) or file upload (upload)</p>
                     </li>
-                    <li class="list-group-item dragMe allDrag">lowercase_global_email_hash <input>
-                        <p>???</p>
+                    <li class="list-group-item dragMe allDrag">uais
+                        <span class="boolSelect"></span>
+                        <input>
+                        <span class="addMe"></span>
+                        <p>user agent device type (eg. smartphone, tablet, etc.)</p>
                     </li>
-                    <li class="list-group-item dragMe allDrag">resume_creations <input>
-                        <p>???</p>
+                    <li class="list-group-item dragMe allDrag">uaos
+                        <span class="boolSelect"></span>
+                        <input>
+                        <span class="addMe"></span>
+                        <p>user agent operating system</p>
                     </li>
-                    <li class="list-group-item dragMe allDrag">resume_updates <input>
-                        <p>???</p>
+                    <li class="list-group-item dragMe allDrag">uaosvmaj
+                        <span class="boolSelect"></span>
+                        <input>
+                        <span class="addMe"></span>
+                        <p>user agent OS version (major)</p>
                     </li>
-                    <li class="list-group-item dragMe allDrag">slregion <input>
-                        <p>???</p>
+                    <li class="list-group-item dragMe allDrag">uaosvmin
+                        <span class="boolSelect"></span>
+                        <input>
+                        <span class="addMe"></span>
+                        <p>user agent OS version (minor)</p>
                     </li>
-                    <li class="list-group-item dragMe allDrag">uab <input>
-                        <p>???</p>
-                    </li>
-                    <li class="list-group-item dragMe allDrag">uabf <input>
-                        <p>???</p>
-                    </li>
-                    <li class="list-group-item dragMe allDrag">uabvmaj <input>
-                        <p>???</p>
-                    </li>
-                    <li class="list-group-item dragMe allDrag">uabvmin <input>
-                        <p>???</p>
-                    </li>
-                    <li class="list-group-item dragMe allDrag">uahas <input>
-                        <p>???</p>
-                    </li>
-                    <li class="list-group-item dragMe allDrag">uais <input>
-                        <p>???</p>
-                    </li>
-                    <li class="list-group-item dragMe allDrag">uaos <input>
-                        <p>???</p>
-                    </li>
-                    <li class="list-group-item dragMe allDrag">uaosvmaj <input>
-                        <p>???</p>
-                    </li>
-                    <li class="list-group-item dragMe allDrag">uaosvmin <input>
-                        <p>???</p>
-                    </li>
-                    <li class="list-group-item dragMe allDrag">useragent <input>
-                        <p>???</p>
+                    <li class="list-group-item dragMe allDrag">useragent
+                        <span class="boolSelect"></span>
+                        <input>
+                        <span class="addMe"></span>
+                        <p>user agent</p>
                     </li>
                 </ul>
 
@@ -273,12 +361,17 @@
 
 
     <!--This is the third part for the picker-->
-
     <div class="mt-3">
         <hr />
-        <div class="d-flex gap-2 justify-content-start">
-            <button type="button" class="btn btn-primary" onclick="codeMagic()">Generate Code</button>
+        <div class="d-flex gap-4 align-items-baseline">
+            <button type="button" class="btn btn-primary mt-0 col col-auto pr-3" onclick="codeMagic()">Generate Code</button>
+            <div class="col col-auto text-secondary">Number of results:
+                <span class="col col-auto text-info" id="resultsReturned"> (Click on 'Generate Code' to show value)<span>
+            </div>
+            <button type="button" class="btn btn-outline-primary mt-0 tempHide col col-auto" data-bs-toggle="modal"
+                data-bs-target="#exampleModal" id="showSampleBtn">Show sample</button>
         </div>
+    
     </div>
 
     <div class="mt-1">
@@ -302,6 +395,39 @@
             <button type="button" class="btn btn-primary">Save</button>
         </div>
     </div>
+
+
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Viewing 1 Sample Result</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Name: Norm L. Guy</p>
+          <p>Location: US</p>
+          <p>Job Titles on his Resume: Nurse, RN, Data Collection Expert </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Show Another</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+
+
+
+
+
+
+
 </body>
 
 </html>

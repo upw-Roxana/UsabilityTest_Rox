@@ -67,7 +67,14 @@ function allSelected() {
 
 }
 
+
 function codeMagic() {
+    codeMagicStuff();
+    randoGen();
+    showSample();
+}
+
+function codeMagicStuff() {
     let boop = document.querySelector("code");
     let something = document.querySelector("#removeMe");
     boop.removeChild(something);
@@ -109,4 +116,38 @@ function codeMagic() {
     select distinct (accountid)
     from with_all;</pre>`;
     boop.append(haha);
+}
+
+function randoGen() {
+    //Random Number Generator
+    let boopyNum = Math.floor(Math.random() * 1000000);
+    let boopy = document.querySelector("#resultsReturned")
+
+    boopyNum = new Intl.NumberFormat('en-US', { maximumSignificantDigits: 3 }).format(boopyNum);
+
+    boopy.innerHTML = boopyNum;
+}
+
+function showSample() {
+    let boop = document.querySelector("#showSampleBtn");
+    if (boop.classList.contains("tempHide")) {
+        boop.classList.remove("tempHide");
+    }
+}
+
+function updateUI() {
+
+    //Bool Boy being added to allDrag
+    let boopArray = document.querySelectorAll(".boolSelect");
+    boopArray.forEach(element => element.innerHTML = `
+    <select aria-label="Bool Operator Select" style="display: inline;" data-bs-toggle="tooltip" data-bs-placement="top" title="Options are equals (=), not (!=), greater (>=), less (<=)">
+        <option selected > = </option>
+        <option > != </option>
+        <option > <= </option>
+        <option > >= </option>
+        </select>
+    `);
+
+    let boopArray2 = document.querySelectorAll(".addMe");
+    boopArray2.forEach(element => element.innerHTML = `<button type="button" class="btn btn-light btn-sm mt-0"> + </button>`);
 }
